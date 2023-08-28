@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import CategoryItem from "../components/categoryItem/CategoryItem.astro";
+
+import Category from "../utils/category.json";
+---
+
+<Layout
+	title="Categorias"
+	description="Lorem ipsum dolor sit amet"
+	pubDate={new Date('August 08 2021')}
+    category="code"
+>
+    <div class="container-category">
+        {
+            Category.category.map((e) => (
+                <CategoryItem title={e} />
+            ))
+        }
+    </div>
+
+</Layout>
+
+<style>
+
+.container-category {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+</style>
