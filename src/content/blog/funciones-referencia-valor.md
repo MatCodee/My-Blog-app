@@ -1,37 +1,36 @@
 ---
-title: 'Funciones por referencia y por valor'
-description: 'Se explica como pasar parametos por referencia y valor en C++'
+title: 'Pasar Parámetros por Referencia y por Valor en C++'
+description: 'Aprende a manejar parámetros en funciones de C++ mediante paso por referencia y por valor'
 pubDate: 'Jul 01 2022'
 heroImage: '/category/cpp.jpg'
 category: 'c++'
 ---
 
-Cuando pasamos parametros en nuestras funciones en los lenguajes actuales algunas vez nos preguntamos cosas como:
-Esto que guardo es una copia de mi variable? es el valor de la direccion?
 
-Pues en C y C++ necesitamos estar preocupados por nuestras variables de manera que debemos ser concientes de operadores como **&** y **(*)**
+Cuando trabajamos con funciones en lenguajes de programación, a menudo nos preguntamos si estamos manipulando una copia de una variable o el valor real en la memoria. En C y C++, es crucial entender cómo funcionan los operadores `&` y `*` para gestionar correctamente nuestros parámetros.
 
-Cosas por ejemplo:
+Por ejemplo, consideremos el siguiente código:
 ```cpp
 int add(int a,int b) {
     return a + b;
 }
 
 ```
-Mira este codigo crees que necesita un **& ?**
+¿Crees que esta función necesita el operador &?
+
 
 
 ##### Paso por valor:
-En simples palabras pasar un parametro por valor es pasar una copia de la variable
+En términos simples, pasar un parámetro por valor implica enviar una copia de la variable.
+
 ##### Paso por referencia:
-Pasar una parametro por referencia es pasar la variable real es decir la misma que esta en la memoria
+Pasar un parámetro por referencia significa pasar la variable real, es decir, la que está en la memoria.
+
 
 #### Explicacion:
-Si nos fijamos en el ejemplo anterior, cuando pasamos **a** y **b**, lo que ocurre en el compilador es que copia el valor de esas variables y las envia a esa funcion, esto 
-nos indica que gastamos memoria adicional para poder copiar esas variables y devolverlas como parametros.
+Si observamos el ejemplo anterior, cuando pasamos a y b, el compilador copia el valor de esas variables y las envía a la función. Esto significa que estamos utilizando memoria adicional para copiar esas variables y pasarlas como parámetros.
 
-Seria mejor que pudieramos pasar las variables directamente verdad?
-bueno aqui te explico como ser mas eficiente con el codigo en C++
+¿No sería mejor pasar las variables directamente? Bueno, aquí te explicamos cómo hacerlo de manera más eficiente en C++.
 
 ##### Pasar por parametros por valor:
 ```cpp
@@ -59,11 +58,12 @@ int main() {
 }
 
 ```
-No hay cambios aparentemente pero en la memoria del programa no existe una copia adicional ni se crea una memoria extra.
+En apariencia, no hay cambios, pero en la memoria del programa no se crea una copia adicional ni se utiliza memoria adicional.
 
 ##### Pero que ventajas y desventajas tiene pasar un parametro por referencia
 Ya vimos que pasar el **&** ahorramos memoria y operaciones, pero que nos puede pasar si alguien por ejemplo modifica la variable dentro de la funcion que es pasada por referencia.
 esto puede ser planeado si usted realmente lo quiere hacer porque quiere, pero si no es planeado puede generar problemas con su codigo a futuro
+
 ```cpp
 int add(int &a,int &b) {
     a = 999;

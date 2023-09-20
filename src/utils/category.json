@@ -2,6 +2,10 @@
     "category": [
         "c++",
         "python",
-        "algoritmos"   
+        "algoritmos",
+        "django",
+        "Vue",
+        "Nuxt",
+        "Flutter"
     ]
 }
